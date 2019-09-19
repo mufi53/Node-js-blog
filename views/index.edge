@@ -1,0 +1,89 @@
+@layout('layouts.app')
+ 
+@section('content')
+ 
+  <!-- Page Header -->
+  <header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Hello!</h1>
+            <span class="subheading">Here You will find content related to health and fitness</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+ <!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <form action="/search" method="POST" encType="multipart/form-data">
+              <div class="control-group">
+                      <div class="form-group floating-label-form-group controls">
+                        <label>Search</label>
+                        <input type="text" name="search" placeholder="Search for a Post .." class="form-control">
+                      </div>
+                    </div>
+                  
+        </div>
+        <div class=" col-lg-2 col-md-3 mx-auto form-group my-4 text-center">
+            <button class="btn btn-primary">Search Post</button>
+          </div>
+        </form>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+         
+        @each(post in posts)
+          <div class="post-preview">
+            <a href="/post/{{ post._id }}">
+              <h2 class="post-title">
+                {{ post.title }}
+              </h2>
+            </a>
+            <p class="post-meta">Posted by
+                    <a href="#">{{ post.username }}</a>
+                    on {{ post.createdAt.toDateString() }}
+                  </p>
+
+                  
+          </div>
+          <div>
+          <a href="/favourite?id={{ post._id }}" >  <button style='font-size:14px'>Mark as Favourite <i class='fas fa-star'></i></button> </a>
+
+          </div>
+          <hr>
+        @endeach
+        <!-- Pager -->
+        <div class="clearfix">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="/?page=1">Latest Post</a></li>
+              <li class="page-item"><a class="page-link" href="/?page={{current_page-1}}"><<</a></li>
+               
+              @each(page in total_pages)
+                  <li class="page-item"><a class="page-link" href="/?page={{page}}">{{page}}</a></li>
+
+
+                  @endeach
+              
+          
+              <li class="page-item"><a class="page-link" href="/?page={{current_page+1}}">>></a></li>
+            <li class="page-item"><a class="page-link" href="/?page={{total_pages.length}}">Oldest Post</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+   
+  <hr>
+
+
+
+@endsection

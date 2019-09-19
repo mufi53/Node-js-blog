@@ -1,0 +1,48 @@
+@layout('layouts.app')
+ 
+@section('content')
+ 
+  <!-- Page Header -->
+  <header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Hello!</h1>
+            <span class="subheading">You can see the reward points for users below !!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+ <!-- Main Content -->
+<div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+         
+        @each(user in users)
+          <div class="post-preview">
+              <h2 class="post-title">
+                {{ user.username }}
+              </h2>
+           
+            <p class="post-meta">Points :
+                    <a href="#">{{ user.points }}</a>
+        
+                  </p>
+          </div>
+          <hr>
+        @endeach
+        <!-- Pager -->
+        <div class="clearfix">
+         
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <hr>
+
+@endsection

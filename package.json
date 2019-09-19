@@ -1,0 +1,26 @@
+{
+  "name": "big_project",
+  "version": "1.0.0",
+  "description": "big project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "dave",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^3.0.0",
+    "express": "^4.17.1",
+    "express-edge": "^1.0.0",
+    "express-fileupload": "^1.1.5",
+    "express-session": "^1.16.2",
+    "mongoose": "^5.6.10",
+    "nodemon": "^1.19.1",
+    "startbootstrap-clean-blog": "^5.0.7"
+  }
+}
